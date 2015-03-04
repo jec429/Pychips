@@ -1,0 +1,45 @@
+*------------------------------------------------------------------------------------------
+* RegName           RegAddr     RegMask     R     	W     Description
+*------------------------------------------------------------------------------------------
+
+link1_spy			51000000	ffffffff	1		1	fifo spy
+link2_spy			52000000	ffffffff	1		1	fifo spy
+link3_spy			53000000	ffffffff	1		1	fifo spy
+
+link1_data0		 	51000003	ffffffff	1		1  	 test register		
+link1_data1		 	51000007	ffffffff	1	    1  	 test register		
+link2_data0		 	52000003	ffffffff	1	    1  	 test register		
+link2_data1		 	52000007	ffffffff	1	    1  	 test register		
+link3_data0		 	53000003	ffffffff	1	    1  	 test register		
+link3_data1		 	53000007	ffffffff	1	    1  	 test register		
+
+en_proc				55000000	ffffffff	1	    1	enable processing
+
+track_out0			54000000	ffffffff	1		1	track out
+track_out1			54000001	ffffffff	1		1	track out
+track_out2			54000002	ffffffff	1		1	track out
+track_out3			54000003	ffffffff	1		1	track out
+
+tracklet_L1L2_1		5c000000	ffffffff	1		1	first part of tracklet
+tracklet_L1L2_2		5c200000	ffffffff	1		1	second part of tracklet
+
+*------------------------------------------------------------------------------------------
+* For Link test
+*------------------------------------------------------------------------------------------
+*Aurora_pphi			
+live_status_pphi	5a0ffff0	ffffffff	1		0	
+loopback_reg_pphi	5a0ffff1	ffffffff	1		1
+*Aurora_mphi			
+live_status_mphi	5a8ffff0	ffffffff	1		0
+loopback_reg_mphi	5a8ffff1	ffffffff	1		1
+
+txdata_pphi			5a1fffff	ffffffff	1		1
+txdata_mphi			5a9fffff	ffffffff	1		1
+rxdata_pphi			5a2fffff	ffffffff	1		0
+rxdata_mphi			5aafffff	ffffffff	1		0
+txstat_pphi			5a3fffff	ffffffff	1		1
+txstat_mphi			5abfffff	ffffffff	1		1
+rxstat_pphi			5a4fffff	ffffffff	1		0
+rxstat_mphi			5acfffff	ffffffff	1		0
+
+link_rst			5bffffff	ffffffff	1		1
