@@ -46,16 +46,16 @@ print "--=======================================--"
 #print
 ################################################
 
-data1 = 0x1234abcd
+data1 = 0x5678beef
 stat1 = 0xffffffff
-data2 = 0xdeadbeef
+data2 = 0xcafebabe
 stat2 = 0xffffffff
 
-#print 
-#print "reset link..."
-#board.write("link_rst",0x00000001,0)
-#rst = board.read("link_rst")
-#print rst
+print 
+print "reset link..."
+board.write("link_rst",0xffffffff,0)
+rst = board.read("link_rst")
+print bin(rst) 
 
 print
 print "-> Set loopback regs"
@@ -85,11 +85,11 @@ print hex(input1stat)
 print hex(input2)
 print hex(input2stat)
 
-#print 
-#print "unset link reset..."
-#board.write("link_rst",0xfffffffe,0)
-#rst = board.read("link_rst")
-#print rst
+print 
+print "unset link reset..."
+board.write("link_rst",0xfffffffe,0)
+rst = board.read("link_rst")
+print bin(rst)
 
 print "-> read aurora plus phi output :"
 dataout1 = board.read("rxdata_pphi")

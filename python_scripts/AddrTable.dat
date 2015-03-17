@@ -42,4 +42,4 @@ txstat_mphi			5abfffff	ffffffff	1		1
 rxstat_pphi			5a4fffff	ffffffff	1		0
 rxstat_mphi			5acfffff	ffffffff	1		0
 
-link_rst			5bffffff	ffffffff	1		1
+link_rst			5adfffff	ffffffff	1		1
