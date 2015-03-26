@@ -26,20 +26,37 @@ tracklet_L1L2_2		5c200000	ffffffff	1		1	second part of tracklet
 *------------------------------------------------------------------------------------------
 * For Link test
 *------------------------------------------------------------------------------------------
-*Aurora_pphi			
-live_status_pphi	5a0ffff0	ffffffff	1		0	
-loopback_reg_pphi	5a0ffff1	ffffffff	1		1
-*Aurora_mphi			
-live_status_mphi	5a8ffff0	ffffffff	1		0
-loopback_reg_mphi	5a8ffff1	ffffffff	1		1
+*Aurora_pphi
+*data io
+txdata1_pphi		5a01fff0	ffffffff	1		1
+txdata2_pphi		5a01fff1	ffffffff	1		1
+txdata3_pphi		5a01fff2	ffffffff	1		1
+rxdata1_pphi		5a01fff3	ffffffff	1		0
+rxdata2_pphi		5a01fff4	ffffffff	1		0	
+rxdata3_pphi		5a01fff5	ffffffff	1		0
+rxstat1_pphi		5a01fff6	ffffffff	1		0
+rxstat2_pphi		5a01fff7	ffffffff	1		0
+rxstat3_pphi		5a01fff8	ffffffff	1		0
+*live status
+live_status_pphi	5a02fff0	ffffffff	1		0	
+loopback_pphi		5a02fff1	ffffffff	1		1
 
-txdata_pphi			5a1fffff	ffffffff	1		1
-txdata_mphi			5a9fffff	ffffffff	1		1
-rxdata_pphi			5a2fffff	ffffffff	1		0
-rxdata_mphi			5aafffff	ffffffff	1		0
-txstat_pphi			5a3fffff	ffffffff	1		1
-txstat_mphi			5abfffff	ffffffff	1		1
-rxstat_pphi			5a4fffff	ffffffff	1		0
-rxstat_mphi			5acfffff	ffffffff	1		0
+*Aurora_mphi
+*data io
+txdata1_mphi		5a11fff0	ffffffff	1		1
+txdata2_mphi		5a11fff1	ffffffff	1		1
+txdata3_mphi		5a11fff2	ffffffff	1		1
+rxdata1_mphi		5a11fff3	ffffffff	1		0
+rxdata2_mphi		5a11fff4	ffffffff	1		0	
+rxdata3_mphi		5a11fff5	ffffffff	1		0
+rxstat1_mphi		5a11fff6	ffffffff	1		0
+rxstat2_mphi		5a11fff7	ffffffff	1		0
+rxstat3_mphi		5a11fff8	ffffffff	1		0
+*live status			
+live_status_mphi	5a12fff0	ffffffff	1		0
+loopback_mphi		5a12fff1	ffffffff	1		1
 
-link_rst			5adfffff	ffffffff	1		1
+link_rst			5a8fffff	ffffffff	1		1
+fsm_en				5a9fffff	ffffffff	1		1
+timer_p2m			5aafffff	ffffffff	1		0
+timer_m2p			5abfffff	ffffffff	1		0
