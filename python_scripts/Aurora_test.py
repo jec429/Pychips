@@ -5,7 +5,7 @@ import time
 ########################################
 # IP address
 ########################################
-f = open('./ipaddr.dat', 'r')
+f = open('./ipaddr_vc707.dat', 'r')
 ipaddr = f.readline()
 f.close()
 board = ChipsBusUdp(AddrTable, ipaddr, 50001)
