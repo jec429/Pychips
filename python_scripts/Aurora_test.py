@@ -73,6 +73,43 @@ print hex(input1_mphi)
 print hex(input2_mphi)
 print hex(input3_mphi)
 
+#######################
+print
+print "check output regs before sending data :"
+print
+print "-> read aurora pphi output :"
+dataout11 = board.read("rxdata1_pphi")
+dataout12 = board.read("rxdata2_pphi")
+dataout13 = board.read("rxdata3_pphi")
+print "-> aurora output :", hex(dataout11)," ",hex(dataout12)," ",hex(dataout13)
+
+print
+print "-> read aurora pphi status :"
+status11 = board.read("rxstat1_pphi")
+status12 = board.read("rxstat2_pphi")
+status13 = board.read("rxstat3_pphi")
+#live status
+live_status1 = board.read("live_status_pphi")
+print "-> aurora status :", bin(status11)," ", bin(status12)," ",bin(status13)
+print "-> aurora live status :", bin(live_status1)
+
+print "-> read aurora mphi output :"
+dataout21 = board.read("rxdata1_mphi")
+dataout22 = board.read("rxdata2_mphi")
+dataout23 = board.read("rxdata3_mphi")
+print "-> aurora output :", hex(dataout21)," ",hex(dataout22)," ",hex(dataout23)
+
+print
+print "-> read aurora mphi status :"
+status21 = board.read("rxstat1_mphi")
+status22 = board.read("rxstat2_mphi")
+status23 = board.read("rxstat3_mphi")
+#live status
+live_status2 = board.read("live_status_mphi")
+print "-> aurora status :", bin(status21)," ", bin(status22)," ",bin(status23)
+print "-> aurora live status :", bin(live_status2)
+#########################
+
 print 
 print "unset link reset..."
 board.write("link_rst",0xfffffffe,0)
