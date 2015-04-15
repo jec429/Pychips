@@ -31,7 +31,7 @@ print
 print "reset link..."
 board.write("link_rst",0xffffffff,0)
 rst = board.read("link_rst")
-board.write("fsm_en",0x00000000,0)  #set enable = 0
+board.write("link_en",0x00000000,0)  #set enable = 0
 print bin(rst) 
 
 print
@@ -93,6 +93,7 @@ live_status1 = board.read("live_status_pphi")
 print "-> aurora status :", bin(status11)," ", bin(status12)," ",bin(status13)
 print "-> aurora live status :", bin(live_status1)
 
+print
 print "-> read aurora mphi output :"
 dataout21 = board.read("rxdata1_mphi")
 dataout22 = board.read("rxdata2_mphi")
@@ -118,7 +119,7 @@ print bin(rst)
 
 print
 print "set enable "
-board.write("fsm_en",0x00000003,0)
+board.write("link_en",0x00000003,0)
 
 print
 print "-> read aurora pphi output :"
@@ -137,6 +138,7 @@ live_status1 = board.read("live_status_pphi")
 print "-> aurora status :", bin(status11)," ", bin(status12)," ",bin(status13)
 print "-> aurora live status :", bin(live_status1)
 
+print
 print "-> read aurora mphi output :"
 dataout21 = board.read("rxdata1_mphi")
 dataout22 = board.read("rxdata2_mphi")
