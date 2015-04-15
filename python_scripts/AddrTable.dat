@@ -37,6 +37,8 @@ rxdata3_pphi		5a01fff5	ffffffff	1		0
 rxstat1_pphi		5a01fff6	ffffffff	1		0
 rxstat2_pphi		5a01fff7	ffffffff	1		0
 rxstat3_pphi		5a01fff8	ffffffff	1		0
+tx_fifo_pphi		5a01fff9	ffffffff	1		1
+rx_fifo_pphi		5a01fffa	ffffffff	1		1
 *live status
 live_status_pphi	5a02fff0	ffffffff	1		0	
 loopback_pphi		5a02fff1	ffffffff	1		1
@@ -52,11 +54,13 @@ rxdata3_mphi		5a11fff5	ffffffff	1		0
 rxstat1_mphi		5a11fff6	ffffffff	1		0
 rxstat2_mphi		5a11fff7	ffffffff	1		0
 rxstat3_mphi		5a11fff8	ffffffff	1		0
+tx_fifo_mphi		5a11fff9	ffffffff	1		1
+rx_fifo_mphi		5a11fffa	ffffffff	1		1
 *live status			
 live_status_mphi	5a12fff0	ffffffff	1		0
 loopback_mphi		5a12fff1	ffffffff	1		1
 
 link_rst			5a8fffff	ffffffff	1		1
-fsm_en				5a9fffff	ffffffff	1		1
+link_en				5a9fffff	ffffffff	1		1
 timer_p2m			5aafffff	ffffffff	1		0
 timer_m2p			5abfffff	ffffffff	1		0
