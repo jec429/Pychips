@@ -11,4 +11,4 @@ ipaddr = f.readline()
 print ipaddr
 f.close()
 board = ChipsBusUdp(AddrTable, ipaddr, 50001)
-#chipsLog.setLevel(logging.DEBUG)    # Verbose logging (see packets being sent and received)
+chipsLog.setLevel(logging.DEBUG)    # Verbose logging (see packets being sent and received)

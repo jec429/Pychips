@@ -14,6 +14,7 @@ link3_data0		 	53000003	ffffffff	1	    1  	 test register
 link3_data1		 	53000007	ffffffff	1	    1  	 test register		
 
 en_proc				55000000	ffffffff	1	    1	enable processing
+reader_data			58000000	ffffffff	1	    1	reader data
 
 track_out0			54000000	ffffffff	1		1	track out
 track_out1			54000001	ffffffff	1		1	track out

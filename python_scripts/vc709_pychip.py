@@ -14,22 +14,23 @@ board = ChipsBusUdp(AddrTable, ipaddr, 50001)
 #chipsLog.setLevel(logging.DEBUG)    # Verbose logging (see packets being sent and received)
 
 def stub_write():
-	f=open('data_in.dat')
+	board.write('en_proc',0)	
+	f=open('data_in2.dat')
 	for line in f:
-	 if 'Event' in line:
-	  continue
+	 print line.strip()
 	 data0 = line.split(' ')[0]
 	 data1 = line.split(' ')[1]
 	 add0 = line.split(' ')[2]
 	 add1 = line.split(' ')[3].strip()
-	 g=open('AddrTable.dat')
+	 print data0,data1,add0,add1
+	 g=open('AddrTable.dat')	
 	 for add in g:
 	  if add0 in add:
-	   #print (int(data0,16))
+	   print '0',hex(int(data0,16))
 	   board.write(add.split(' ')[0].strip(),(int(data0,16)))
 	  if add1 in add.strip():
 	   board.write(add.split(' ')[0].strip(),int(data1,16))
-	   #print hex(int(data1,16))
+	   print '1',hex(int(data1,16))
 	board.write('en_proc',1)
 	sleep(1)
 	board.write('en_proc',0)
