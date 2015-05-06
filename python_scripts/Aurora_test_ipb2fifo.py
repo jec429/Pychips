@@ -2,6 +2,7 @@ from PyChipsUser import *
 AddrTable = AddressTable("./AddrTable.dat")
 import os
 import time
+import binascii
 ########################################
 # IP address
 ########################################
@@ -99,15 +100,51 @@ board.write("tx_fifo_mphi",0xff03e47a)	#tdata = 0xe47a, tkeep = 0b01, tlast = 0b
 # board.write("tx_fifo_pphi",0xfff7a9c0)	#tdata = 0xa9c0, tkeep = 0b11, tlast = 0b1
 # # data package sent is : 0x13573d5efe3ba9c0
 
-print
-print "enable link ... "
-board.write("link_en",0x00000003,0)
+# print
+# print "enable link ... "
+# board.write("link_en",0x00000003,0)
+
+######################################################################################
+# generate random input data and write to the fifo for eyescan
+# print "************************************************"
+# print "*****************           ********************"
+# print "*************                   ****************"
+# print "*********                            ***********"
+# print "*****                                     ******"
+# print "**                                            **"
+# print "**                                            **"
+# print "*****                                     ******"
+# print "*********                            ***********"
+# print "*************                   ****************"
+# print "*****************           ********************"
+# print "************************************************"
+
+stat1=0xff060000  #link status part of the input; tkeep=11, tlast=0
+stat2=0xff050000  #link status part of the input; tkeep=10, tlast=1
+
+for i in range(10):
+
+	random1=binascii.b2a_hex(os.urandom(2)) # 2 bytes random string from system
+	random2=binascii.b2a_hex(os.urandom(2)) # 2 bytes random string from system
+	random3=binascii.b2a_hex(os.urandom(2)) # 2 bytes random string from system
+	random4=binascii.b2a_hex(os.urandom(2)) # 2 bytes random string from system
+
+	out_1=stat1+int(random1,16)          # combine status and data parts, int() convert string to long
+	out_2=stat1+int(random2,16)          # combine status and data parts, int() convert string to long
+	out_3=stat1+int(random3,16)          # combine status and data parts, int() convert string to long
+	out_4=stat2+int(random4,16)          # combine status and data parts, int() convert string to long
+
+	board.write("tx_fifo_pphi",out_1)	
+	board.write("tx_fifo_pphi",out_2)	
+	board.write("tx_fifo_pphi",out_3)	
+	board.write("tx_fifo_pphi",out_4)	
+######################################################################################
 
 # print
 # print "-> read aurora mphi output :"
 # readback_mphi = board.read("rx_fifo_mphi")
 # print "-> readout :", hex(readback_mphi)
-# #live status
+# live status
 # live_status_mphi = board.read("live_status_mphi")
 # print "-> aurora live status :", bin(live_status_mphi)
 
@@ -115,9 +152,13 @@ board.write("link_en",0x00000003,0)
 # print "-> read aurora pphi output :"
 # readback_pphi = board.read("rx_fifo_pphi")
 # print "-> readout :", hex(readback_pphi)
-# #live status
+# live status
 # live_status_pphi = board.read("live_status_pphi")
 # print "-> aurora live status :", bin(live_status_pphi)
+
+print
+print "enable link ... "
+board.write("link_en",0x00000003,0)
 
 print
 print "-> read aurora pphi output :"
@@ -141,3 +182,4 @@ timerout_p2m = board.read("timer_p2m")
 timerout_m2p = board.read("timer_m2p")
 print "p2m : ", timerout_p2m
 print "m2p : ", timerout_m2p
+
